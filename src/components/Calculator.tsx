@@ -12,25 +12,68 @@ import {
 import { useState } from "react";
 
 export default function Calculator() {
-  const [num, setNum] = useState(0);
+  const [num, setNum] = useState("0");
+  const [oldNum, setOldNum] = useState("0");
+  const [operator, setOperator] = useState(" ");
 
   const inputButton = (event: MouseEvent<HTMLButtonElement>) => {
-    var input = parseFloat((event.target as HTMLInputElement).value);
-    var inputString = input.toString();
-    var numString = num.toString();
-    if (num === 0) {
-      setNum(input);
+    if ((event.target as HTMLInputElement).value === ".") {
+      var input = parseFloat((event.target as HTMLInputElement).value);
+      var inputString = input.toString();
+      //numString = num.toString();
+      if (num === "0") {
+        setNum(inputString);
+      } else {
+        setNum(num + ".");
+      }
     } else {
-      setNum(parseFloat(numString + inputString));
+      input = parseFloat((event.target as HTMLInputElement).value);
+      inputString = input.toString();
+      //numString = num.toString();
+      if (num === "0") {
+        setNum(inputString);
+      } else {
+        setNum(num + inputString);
+      }
     }
   };
-
   function clear() {
-    setNum(0);
+    setNum("0");
   }
 
   function percentage() {
-    setNum(num / 100);
+    parseFloat(num);
+    var perc = parseFloat(num) / 100;
+    setNum(perc.toString());
+  }
+
+  function toInvert() {
+    if (parseFloat(num) > 0) {
+      setNum("-" + num);
+    } else if (parseFloat(num) < 0) {
+      setNum((parseFloat(num) * -1).toString());
+    }
+  }
+  const operatorHandler = (event: MouseEvent<HTMLButtonElement>) => {
+    var operatorInput = (event.target as HTMLInputElement).value;
+
+    setOperator(operatorInput);
+    setOldNum(num);
+    setNum("0");
+  };
+
+  function calculate() {
+    var oldNumNumber = parseFloat(oldNum);
+    var numNumber = parseFloat(num);
+    if (operator === "/") {
+      setNum((oldNumNumber / numNumber).toString());
+    } else if (operator === "X") {
+      setNum((oldNumNumber * numNumber).toString());
+    } else if (operator === "-") {
+      setNum((oldNumNumber - numNumber).toString());
+    } else if (operator === "+") {
+      setNum((oldNumNumber + numNumber).toString());
+    }
   }
 
   return (
@@ -83,7 +126,14 @@ export default function Calculator() {
                 {" "}
                 %{" "}
               </Button>
-              <Button bg="white" w="30px" h="40px" borderRadius="50%">
+              <Button
+                bg="white"
+                w="30px"
+                h="40px"
+                borderRadius="50%"
+                onClick={operatorHandler}
+                value={"/"}
+              >
                 {" "}
                 /{" "}
               </Button>
@@ -92,7 +142,7 @@ export default function Calculator() {
           <Flex w="300px" justifyContent="space-between">
             <Button
               onClick={inputButton}
-              value={7}
+              value={"7"}
               bg="white"
               w="30px"
               h="40px"
@@ -107,7 +157,7 @@ export default function Calculator() {
               h="40px"
               borderRadius="50%"
               onClick={inputButton}
-              value={8}
+              value={"8"}
             >
               {" "}
               8{" "}
@@ -123,7 +173,14 @@ export default function Calculator() {
               {" "}
               9{" "}
             </Button>
-            <Button bg="white" w="30px" h="40px" borderRadius="50%">
+            <Button
+              bg="white"
+              w="30px"
+              h="40px"
+              borderRadius="50%"
+              onClick={operatorHandler}
+              value={"X"}
+            >
               {" "}
               X{" "}
             </Button>
@@ -162,7 +219,14 @@ export default function Calculator() {
               {" "}
               6{" "}
             </Button>
-            <Button bg="white" w="30px" h="40px" borderRadius="50%">
+            <Button
+              bg="white"
+              w="30px"
+              h="40px"
+              borderRadius="50%"
+              onClick={operatorHandler}
+              value={"-"}
+            >
               {" "}
               -{" "}
             </Button>
@@ -201,13 +265,26 @@ export default function Calculator() {
               {" "}
               3{" "}
             </Button>
-            <Button bg="white" w="30px" h="40px" borderRadius="50%">
+            <Button
+              bg="white"
+              w="30px"
+              h="40px"
+              borderRadius="50%"
+              onClick={operatorHandler}
+              value={"+"}
+            >
               {" "}
               +{" "}
             </Button>
           </Flex>
           <Flex w="300px" justifyContent="space-between">
-            <Button bg="white" w="30px" h="40px" borderRadius="50%">
+            <Button
+              bg="white"
+              w="30px"
+              h="40px"
+              borderRadius="50%"
+              onClick={toInvert}
+            >
               {" "}
               +/-{" "}
             </Button>
@@ -222,11 +299,24 @@ export default function Calculator() {
               {" "}
               0{" "}
             </Button>
-            <Button bg="white" w="30px" h="40px" borderRadius="50%">
+            <Button
+              bg="white"
+              w="30px"
+              h="40px"
+              borderRadius="50%"
+              onClick={inputButton}
+              value={"."}
+            >
               {" "}
-              ,{" "}
+              .{" "}
             </Button>
-            <Button bg="white" w="30px" h="40px" borderRadius="50%">
+            <Button
+              bg="white"
+              w="30px"
+              h="40px"
+              borderRadius="50%"
+              onClick={calculate}
+            >
               {" "}
               ={" "}
             </Button>
