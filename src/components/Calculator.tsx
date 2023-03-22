@@ -7,6 +7,7 @@ import {
   Button,
   Flex,
   HStack,
+  Divider,
 } from "@chakra-ui/react";
 
 import { useState } from "react";
@@ -78,15 +79,9 @@ export default function Calculator() {
 
   return (
     <Center>
-      <VStack w="400px" h="600" bg="blue" marginTop="80px">
+      <VStack w="350px" h="550" bg="#4169E1" marginTop="80px">
         <HStack>
-          <Flex
-            w="350px"
-            h="100px"
-            bg="red"
-            marginTop="60px"
-            marginBottom="60px"
-          >
+          <Flex w="300px" h="50px" marginTop="50px" marginBottom="50px">
             <Flex
               w="350px"
               h="100px"
@@ -100,13 +95,14 @@ export default function Calculator() {
             </Flex>
           </Flex>
         </HStack>
-        <Flex flexDirection="column" h="300px" justifyContent="space-between">
+        <Divider />
+        <Flex flexDirection="column" h="350px" justifyContent="space-between">
           <Flex w="300px" justifyContent="space-between">
             <Flex w="150px">
               <Button
                 bg="white"
-                w="30px"
-                h="40px"
+                w="60px"
+                h="60px"
                 borderRadius="50%"
                 onClick={clear}
               >
@@ -117,8 +113,8 @@ export default function Calculator() {
             <Flex w="150px" justifyContent="space-between">
               <Button
                 bg="white"
-                w="30px"
-                h="40px"
+                w="60px"
+                h="60px"
                 borderRadius="50%"
                 marginLeft="25px"
                 onClick={percentage}
@@ -128,8 +124,8 @@ export default function Calculator() {
               </Button>
               <Button
                 bg="white"
-                w="30px"
-                h="40px"
+                w="60px"
+                h="60px"
                 borderRadius="50%"
                 onClick={operatorHandler}
                 value={"/"}
@@ -144,8 +140,8 @@ export default function Calculator() {
               onClick={inputButton}
               value={"7"}
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
             >
               {" "}
@@ -153,8 +149,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={inputButton}
               value={"8"}
@@ -164,8 +160,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={inputButton}
               value={9}
@@ -175,8 +171,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={operatorHandler}
               value={"X"}
@@ -188,8 +184,8 @@ export default function Calculator() {
           <Flex w="300px" justifyContent="space-between">
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={inputButton}
               value={4}
@@ -199,8 +195,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={inputButton}
               value={5}
@@ -210,8 +206,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={inputButton}
               value={6}
@@ -221,8 +217,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={operatorHandler}
               value={"-"}
@@ -234,8 +230,8 @@ export default function Calculator() {
           <Flex w="300px" justifyContent="space-between">
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={inputButton}
               value={1}
@@ -245,8 +241,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={inputButton}
               value={2}
@@ -256,8 +252,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={inputButton}
               value={3}
@@ -267,8 +263,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={operatorHandler}
               value={"+"}
@@ -280,8 +276,8 @@ export default function Calculator() {
           <Flex w="300px" justifyContent="space-between">
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={toInvert}
             >
@@ -290,8 +286,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={inputButton}
               value={0}
@@ -301,8 +297,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={inputButton}
               value={"."}
@@ -312,8 +308,8 @@ export default function Calculator() {
             </Button>
             <Button
               bg="white"
-              w="30px"
-              h="40px"
+              w="60px"
+              h="60px"
               borderRadius="50%"
               onClick={calculate}
             >
