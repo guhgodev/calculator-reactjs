@@ -104,6 +104,7 @@ export default function Calculator() {
                 w="60px"
                 h="60px"
                 borderRadius="50%"
+                color="red"
                 onClick={clear}
               >
                 {" "}
@@ -116,22 +117,24 @@ export default function Calculator() {
                 w="60px"
                 h="60px"
                 borderRadius="50%"
-                marginLeft="25px"
+                marginLeft="10px"
+                color="green"
                 onClick={percentage}
               >
                 {" "}
-                %{" "}
+                <strong>%</strong>{" "}
               </Button>
               <Button
                 bg="white"
                 w="60px"
                 h="60px"
                 borderRadius="50%"
+                color="green"
                 onClick={operatorHandler}
                 value={"/"}
               >
                 {" "}
-                /{" "}
+                <strong>/</strong>{" "}
               </Button>
             </Flex>
           </Flex>
@@ -174,11 +177,12 @@ export default function Calculator() {
               w="60px"
               h="60px"
               borderRadius="50%"
+              color="green"
               onClick={operatorHandler}
               value={"X"}
             >
               {" "}
-              X{" "}
+              <strong> x </strong>{" "}
             </Button>
           </Flex>
           <Flex w="300px" justifyContent="space-between">
@@ -220,11 +224,12 @@ export default function Calculator() {
               w="60px"
               h="60px"
               borderRadius="50%"
+              color="green"
               onClick={operatorHandler}
               value={"-"}
             >
               {" "}
-              -{" "}
+              <strong> - </strong>{" "}
             </Button>
           </Flex>
           <Flex w="300px" justifyContent="space-between">
@@ -266,11 +271,12 @@ export default function Calculator() {
               w="60px"
               h="60px"
               borderRadius="50%"
+              color="green"
               onClick={operatorHandler}
               value={"+"}
             >
               {" "}
-              +{" "}
+              <strong>+</strong>{" "}
             </Button>
           </Flex>
           <Flex w="300px" justifyContent="space-between">
@@ -311,10 +317,11 @@ export default function Calculator() {
               w="60px"
               h="60px"
               borderRadius="50%"
+              color="green"
               onClick={calculate}
             >
               {" "}
-              ={" "}
+              <strong>=</strong>{" "}
             </Button>
           </Flex>
         </Flex>
